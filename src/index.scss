@@ -1,0 +1,20 @@
+$medium-blue: #1100d1ff;
+$alloy-orange: #c96218ff;
+$raw-sienna: #cc8d60ff;
+$phthalo-blue: #160b8fff;
+$blue: #1a05ffff;
+
+$enable-shadows: true;
+$enable-gradients: true;
+
+$theme-colors: (
+  "primary": $medium-blue,
+  "secondary": $raw-sienna,
+  "dark": $phthalo-blue,
+);
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+
+$font-family-sans-serif: "Poppins", sans-serif;
+
+@import "bootstrap";
