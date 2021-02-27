@@ -7,53 +7,85 @@ class Home extends Component {
     this.state = {
       classes: [
         {
-          name:
-            "1gggggggggggggggggggggggggggggggg gggggggggggggggggggggg ggggggggggggggggggggggggggggggg ggggggggg",
-          details:
-            "abcggsgggggggggggggggggggggggggggggggggggggggggggg gggggggggggggg ggggggggg gggggggggg",
+          name: "Organization name",
+          details: "Organization details",
         },
         {
-          name:
-            "1gggggggggggggggggggggggggggggggg gggggggggggggggggggggg ggggggggggggggggggggggggggggggg ggggggggg",
-          details:
-            "abcggsgggggggggggggggggggggggggggggggggggggggggggg gggggggggggggg ggggggggg gggggggggg",
+          name: "Organization name",
+          details: "Organization details",
         },
         {
-          name:
-            "1gggggggggggggggggggggggggggggggg gggggggggggggggggggggg ggggggggggggggggggggggggggggggg ggggggggg",
-          details:
-            "abcggsgggggggggggggggggggggggggggggggggggggggggggg gggggggggggggg ggggggggg gggggggggg",
+          name: "Organization name",
+          details: "Organization details",
         },
         {
-          name:
-            "1gggggggggggggggggggggggggggggggg gggggggggggggggggggggg ggggggggggggggggggggggggggggggg ggggggggg",
-          details:
-            "abcggsgggggggggggggggggggggggggggggggggggggggggggg gggggggggggggg ggggggggg gggggggggg",
+          name: "Organization name",
+          details: "Organization details",
         },
         {
-          name:
-            "1gggggggggggggggggggggggggggggggg gggggggggggggggggggggg ggggggggggggggggggggggggggggggg ggggggggg",
-          details:
-            "abcggsgggggggggggggggggggggggggggggggggggggggggggg gggggggggggggg ggggggggg gggggggggg",
+          name: "Organization name",
+          details: "Organization details",
+        },
+        {
+          name: "Organization name",
+          details: "Organization details",
+        },
+        {
+          name: "Organization name",
+          details: "Organization details",
+        },
+        {
+          name: "Organization name",
+          details: "Organization details",
+        },
+        {
+          name: "Organization name",
+          details: "Organization details",
+        },
+        {
+          name: "Organization name",
+          details: "Organization details",
+        },
+        {
+          name: "Organization name",
+          details: "Organization details",
+        },
+        {
+          name: "Organization name",
+          details: "Organization details",
+        },
+        {
+          name: "Organization name",
+          details: "Organization details",
         },
       ],
     };
   }
   render() {
     return (
-      <div className="min-vh-100">
-        <Navbar />
-        <div className="d-flex flex-md-row flex-column flex-wrap p-4 justify-content-start ml-4">
+      <div className="min-vh-">
+        <div
+          className="d-flex flex-md-row flex-column flex-wrap mx-auto w-100 justify-content-start"
+          style={{ minHeight: "80vh" }}
+        >
           {this.state.classes.map((c) => {
             return (
-              <div class="card w-25 h-50 my-3 mx-5">
-                <h5 class="card-header text-truncate">{c.name}</h5>
-                <div class="card-body">
+              <div
+                class="card border-0 shadow h-50 my-3 mx-auto"
+                style={{
+                  width: "30vw",
+                  borderRadius: ".5em",
+                }}
+              >
+                <h5 class="card-header border-0 text-truncate">{c.name}</h5>
+                <div class="card-body boder-0 ">
                   {/* <h5 class="card-title"></h5> */}
                   <p class="card-text text-truncate">{c.details}</p>
-                  <Link to="/channel/1" class="btn btn-primary">
-                    Go to channel
-                  </Link>
+                  <div className="text-center">
+                    <Link to="/channel/1" class="btn shadow-sm btn-primary">
+                      Go to channel
+                    </Link>
+                  </div>
                 </div>
               </div>
             );

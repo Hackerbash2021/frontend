@@ -23,6 +23,12 @@ export class Login extends Component {
   handleSubmit = (evt) => {
     evt.preventDefault();
 
+    if (voca.isEmpty(this.state.email) || voca.isEmpty(this.state.password)) {
+      NotificationManager.error("Don't mess around 🥱");
+    } else {
+      NotificationManager.success("Welcome 🐱‍👤");
+    }
+
     // let u = login(this.state.email, this.state.password);
     // NotificationManager.info("Verify account to proceed");
     // NotificationManager.error(e.message);
@@ -45,7 +51,9 @@ export class Login extends Component {
           <div className="d-flex flex-column w-100 justify-content-center col-5 p-5">
             <form method="post" onSubmit={this.handleSubmit} autoComplete="off">
               {/* Title */}
-              <h1 className="text-center pb-4">Hackerbash</h1>
+              <h1 className="text-center pb-4 animate__animated animate__tada animate__delay-2s">
+                Hackerbash
+              </h1>
 
               {/* Email Field */}
               <div className="form-group">
@@ -90,7 +98,7 @@ export class Login extends Component {
                 </div>
                 <div className="dropdown">
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-altblue"
                     data-target="auth-login-dropdown"
                     data-toggle="dropdown"
                   >

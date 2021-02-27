@@ -6,7 +6,7 @@ import RegisterSvg from "./Register.svg";
 import Register2Svg from "./Register2.svg";
 import { Link } from "react-router-dom";
 import $ from "jquery";
-import { register } from "../../services/auth";
+// import { register } from "../../services/auth";
 import { NotificationManager } from "react-notifications";
 
 export class Register extends Component {
@@ -19,6 +19,8 @@ export class Register extends Component {
       organizationName: "",
       contact: "",
       image: RegisterSvg,
+      organizationType: "",
+      accessibility: "",
     };
   }
   // https://www.thepolyglotdeveloper.com/2015/05/use-regex-to-test-password-strength-in-javascript/
@@ -82,44 +84,25 @@ export class Register extends Component {
     ev.preventDefault();
     if (this.validatePassword(this.state.password)) {
       if (this.state.confirm_password === this.state.password) {
-        NotificationManager.success("Account created");
-
-        // $("#reason").fadeOut("fast");
-        // register(this.state.email, this.state.password)
-        //   .then(({ user }) => {
-        //     user
-        //       .sendEmailVerification()
-        //       .then(() => {
-        //         this.setState({ code: "accountCreated" }, () => {
-        //           $("#reason").fadeIn("fast");
-        //         });
-        //       })
-        //       .catch((err) => {
-        //         this.setState({ code: "sendMailError" }, () => {
-        //           $("#reason").fadeIn("fast");
-        //         });
-        //       });
-        //   })
-        //   .catch(({ code }) => {
-        //     this.setState({ code: code }, () => {
-        //       $("#reason").fadeIn("fast");
-        //     });
-        //   });
+        if (!$("#isOrganizationMember:checked").val())
+          NotificationManager.success("Account created 😄");
+        else NotificationManager.success("Organization established 👏");
       }
     } else {
+      NotificationManager.error("Don't mess around 🥱");
     }
   };
 
   render() {
     return (
-      <div className="min-vh-100 d-flex flex-row-">
+      <div className="min-vh-100 d-flex">
         {/* Image */}
         <div className="d-flex align-items-center justify-content-center col-7">
           <img
             id="registrationIllustration"
             src={this.state.image}
             alt="Register"
-            className="w-100 img-responsive p-3"
+            className="img-responsive p-3 w-100 vh-100"
           />
         </div>
 
@@ -132,7 +115,9 @@ export class Register extends Component {
             className="w-100 mx-auto"
           >
             {/* Title */}
-            <h1 className="text-center pb-4">Hackerbash</h1>
+            <h1 className="text-center pb-4 animate__animated animate__tada animate__delay-2s">
+              Hackerbash
+            </h1>
 
             {/* Email */}
             <div className="form-group">
@@ -229,6 +214,74 @@ export class Register extends Component {
                   id="organizationName"
                 />
               </div>
+              <div className="form-group">
+                <label htmlFor="organizationType">Organization type</label>
+                <select class="custom-select" id="organizationType">
+                  <option
+                    selected
+                    value=""
+                    onClick={(ev) =>
+                      this.setState({ organizationType: ev.target.value })
+                    }
+                  >
+                    -- 🏫 --
+                  </option>
+                  <option
+                    value="school"
+                    onClick={(ev) =>
+                      this.setState({ organizationType: ev.target.value })
+                    }
+                  >
+                    School
+                  </option>
+                  <option
+                    value="college"
+                    onClick={(ev) =>
+                      this.setState({ organizationType: ev.target.value })
+                    }
+                  >
+                    College
+                  </option>
+                  <option
+                    value="other"
+                    onClick={(ev) =>
+                      this.setState({ organizationType: ev.target.value })
+                    }
+                  >
+                    Other
+                  </option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="accessibility">Accessibility</label>
+                <select class="custom-select" id="accessibility">
+                  <option
+                    selected
+                    value=""
+                    onClick={(ev) =>
+                      this.setState({ organizationType: ev.target.value })
+                    }
+                  >
+                    -- 👇 --
+                  </option>
+                  <option
+                    value="public"
+                    onClick={(ev) =>
+                      this.setState({ organizationType: ev.target.value })
+                    }
+                  >
+                    Public
+                  </option>
+                  <option
+                    value="private"
+                    onClick={(ev) =>
+                      this.setState({ organizationType: ev.target.value })
+                    }
+                  >
+                    Private
+                  </option>
+                </select>
+              </div>
             </div>
 
             {/* Messages */}
@@ -238,7 +291,7 @@ export class Register extends Component {
             <div className="form-group d-flex justify-content-between align-items-center">
               <div className="dropdown">
                 <button
-                  className="btn btn-dark"
+                  className="btn btn-altblue"
                   data-target="auth-login-dropdown"
                   data-toggle="dropdown"
                 >

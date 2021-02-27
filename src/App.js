@@ -68,8 +68,8 @@ export default class App extends Component {
     return (
       <div id="App">
         {studentRoutes}
-        <hr />
-        {authRoutes}
+        {/* <hr /> */}
+        {/* {authRoutes} */}
       </div>
     );
   }

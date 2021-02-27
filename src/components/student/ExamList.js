@@ -34,7 +34,7 @@ export default class ExamList extends Component {
   render() {
     if (this.state.loading) return <Loading />;
     return (
-      <div className="min-vh-100">
+      <div className="min-vh-">
         {this.exams.map((exam) => {
           return (
             <Link to={`/channel/${this.props.match.params.id}/exam/${exam.id}`}>

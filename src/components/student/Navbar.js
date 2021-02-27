@@ -8,62 +8,62 @@ export default class Navbar extends Component {
     this.state = {
       notifications: [
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
         {
-          name: "name",
+          name: "🐣 Approaching EDA Lab Assessment",
 
           in_days: 10,
         },
@@ -83,9 +83,9 @@ export default class Navbar extends Component {
   };
   render() {
     return (
-      <nav class="navbar navbar-expand-lg shadow-sm">
+      <nav class="navbar navbar-expand-lg shadow- bg-white navbar-light">
         <div className="navbar-brand">
-          <h1>Examz</h1>
+          <h2 className="p-0 m-0 font-weight-bold">Hackerbash</h2>
         </div>
         <button
           class="navbar-toggler"
@@ -99,89 +99,43 @@ export default class Navbar extends Component {
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div
-          style={{
-            position: "fixed",
-            bottom: "1em",
-            right: "1em",
-            width: "3.2em",
-            height: "3.2em",
-          }}
-          data-toggle="modal"
-          data-target="#addOrganizationButton"
-          role="button"
-          className="border shadow-lg rounded-circle p-0 m-0 d-flex justify-content-center align-items-center bg-dark"
-        >
-          <span
-            style={{ fontSize: "1.3em" }}
-            className="fa fa-plus p-0 m-0 text-white"
-          ></span>
-        </div>
-
-        <div
-          class="modal fade"
-          id="addOrganizationButton"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">
-                  Enter the code
-                </h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <form method="post" onSubmit={this.handleSubmit}>
-                <div class="modal-body">
-                  <input
-                    id="code"
-                    type="text"
-                    name="code"
-                    className="form-control"
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary">
-                    Submit
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+          <ul class="navbar-nav ml-auto font-weight-bold">
+            <li class="nav-item pl-2 active">
               <Link className="nav-link" to="/">
                 Dashboard
               </Link>
             </li>
-            <li class="nav-item">
+            <li class="nav-item pl-2">
+              <Link className="nav-link" to="/search">
+                Search
+              </Link>
+            </li>
+            <li class="nav-item pl-2">
               <Link className="nav-link" to="/my-exams">
-                My Exams
+                Subscriptions
               </Link>
             </li>
 
-            <li class="nav-item">
+            {/* bell */}
+            <li class="">
               <div
+                style={{
+                  position: "fixed",
+                  bottom: "1em",
+                  left: "1em",
+                  zIndex: "1039",
+                  width: "2.8em",
+                  height: "2.8em",
+                  borderRadius: "1.4em",
+                }}
                 role="button"
-                className="dropdown p-1 border shadow-sm rounded-circle"
+                className="dropup p-1 shadow-lg rounded-circle bg-dark d-flex justify-content-center align-items-center"
                 data-toggle="dropdown"
               >
-                <div class="nav-link fa fa-bell fa- text-primary"></div>
+                <div class="fa fa-bell fa- text-white"></div>
                 <div
-                  className="dropdown-menu my-2 border-0 dropdown-menu-right"
+                  className="dropdown-menu my-2 border-0 dropdown-menu"
                   style={{
                     height: "60vh",
                     width: "35vw",
@@ -198,10 +152,12 @@ export default class Navbar extends Component {
                         <div className="dropdown-item d-flex">
                           <div className="d-flex flex-column">
                             <div className="">
-                              <div>{notif.name}</div>
+                              <b className="">{notif.name}</b>
 
                               <div className="text-muted">
-                                <small>In {notif.in_days} days</small>
+                                <small className="">
+                                  In {notif.in_days} days
+                                </small>
                               </div>
                             </div>
                           </div>
@@ -220,12 +176,81 @@ export default class Navbar extends Component {
                 </div>
               </div>
             </li>
-            <li class="nav-item">
+            {/* <li className="nav-item pl-2">
+              <Link to="/profile" className="nav-link">
+                Profile
+              </Link>
+            </li> */}
+            <li class="nav-item pl-2">
               <span className="nav-link text-danger" role="button">
                 Sign out
               </span>
             </li>
           </ul>
+        </div>
+
+        <div
+          style={{
+            position: "fixed",
+            bottom: "1em",
+            right: "1em",
+            width: "2.8em",
+            height: "2.8em",
+            borderRadius: "1.4em",
+            zIndex: "1039",
+          }}
+          data-toggle="modal"
+          data-target="#addOrganizationButton"
+          role="button"
+          className="shadow-lg bg-dark d-flex justify-content-center align-items-center"
+        >
+          <div
+            style={{ fontSize: "1.3em" }}
+            className="fa fa-plus  text-white p-0 m-0"
+          ></div>
+        </div>
+
+        <div
+          class="modal fade"
+          id="addOrganizationButton"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0">
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  Enter the code
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">⛔</span>
+                </button>
+              </div>
+              <form method="post" onSubmit={this.handleSubmit}>
+                <div class="modal-body border-0">
+                  <input
+                    id="code"
+                    type="text"
+                    name="code"
+                    className="form-control"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div class="modal-footer border-0 d-flext justify-content-center align-items-center">
+                  <button type="submit" class="btn btn-primary shadow">
+                    Join
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </nav>
     );

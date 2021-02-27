@@ -6,6 +6,9 @@ import Home from "./components/student/Home";
 import Channel from "./components/student/Channel";
 import Exam from "./components/student/Exam";
 import ExamList from "./components/student/ExamList";
+import Navbar from "./components/student/Navbar";
+import Search from "./components/student/Search";
+import Profile from "./components/student/Profile";
 // function Home(userType) {
 //   return (
 //     <div>
@@ -39,14 +42,19 @@ const adminRoutes = (
 );
 
 const studentRoutes = (
-  <Switch>
-    <Route path="/" component={Home}></Route>
-    <Route exact path="/channel/:id" component={Channel}></Route>
-    <Route exact path="/channel/:id/exam/:id" component={Exam}></Route>
-    <Route exact path="/my-exams" component={ExamList}></Route>
+  <>
+    <Navbar />
+    <Switch>
+      <Route exact path="/" component={Home}></Route>
+      <Route exact path="/channel/:id" component={Channel}></Route>
+      <Route exact path="/channel/:id/exam/:id" component={Exam}></Route>
+      <Route exact path="/search" component={Search}></Route>
+      <Route exact path="/profile" component={Profile}></Route>
+      <Route exact path="/my-exams" component={ExamList}></Route>
 
-    <Redirect to="/"></Redirect>
-  </Switch>
+      <Redirect to="/"></Redirect>
+    </Switch>
+  </>
 );
 
 export { authRoutes, adminRoutes, studentRoutes };

@@ -7,6 +7,7 @@ import "./index.scss";
 import "react-notifications/lib/notifications.css";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import { NotificationContainer } from "react-notifications";
+import "animate.css";
 
 RD.render(
   <BrowserRouter>
