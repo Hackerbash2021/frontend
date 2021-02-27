@@ -1,0 +1,122 @@
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./AdminHome.scss";
+
+export default class AdminHome extends Component {
+  constructor() {
+    super();
+    this.state = {
+      classes: [
+        {
+          name: "Room name",
+          accessibility: "Public",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+        {
+          name: "Room name",
+          accessibility: "Private",
+          details: "Some Random Class Number, say 2",
+        },
+      ],
+    };
+  }
+  render() {
+    return (
+      <div>
+        {/* content */}
+        <div
+          className="d-flex flex-lg-row flex-column flex-wrap mx-lg-auto w-lg-100 justify-content-start"
+          style={{ minHeight: "80vh" }}
+        >
+          {this.state.classes.map((c) => {
+            return (
+              <div
+                class="dashboard-organizations card border-0 shadow h-50 my-3 mx-lg-auto overflow-hidden"
+                style={{
+                  borderRadius: ".5em",
+                }}
+              >
+                <h5 class="card-header border-0 text-truncate">
+                  {c.name}
+                  {c.accessibility === "Private" ? (
+                    <button class="btn">
+                      <span class="badge badge-danger">Private</span>
+                    </button>
+                  ) : (
+                    <button className="btn">
+                      <span class="badge badge-success">Public</span>
+                    </button>
+                  )}
+                </h5>
+                <div class="card-body boder-0 ">
+                  {/* <h5 class="card-title"></h5> */}
+                  <p class="card-text text-truncate">{c.details}</p>
+                  <div className="text-center">
+                    <Link to="/channel/1" class="btn shadow-sm btn-primary">
+                      Go to channel
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+}

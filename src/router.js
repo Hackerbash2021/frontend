@@ -3,12 +3,16 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import React from "react";
 import Home from "./components/student/Home";
+import AdminHome from "./components/admin/AdminHome";
 import Channel from "./components/student/Channel";
 import Exam from "./components/student/Exam";
 import ExamList from "./components/student/ExamList";
 import Navbar from "./components/student/Navbar";
 import Search from "./components/student/Search";
 import Profile from "./components/student/Profile";
+import AdminChannel from "./components/admin/AdminChannel";
+import AdminExam from "./components/admin/AdminExam";
+import AdminNavbar from "./components/admin/AdminNavbar";
 // function Home(userType) {
 //   return (
 //     <div>
@@ -35,10 +39,17 @@ const authRoutes = (
 );
 
 const adminRoutes = (
-  <Switch>
-    <Route path="/" component={() => Home("admin")}></Route>
-    <Redirect to="/"></Redirect>
-  </Switch>
+  <>
+    {/* navbar */}
+    <AdminNavbar></AdminNavbar>
+    {/* content */}
+    <Switch>
+      <Route exact path="/" component={AdminHome}></Route>
+      <Route exact path="/channel/:id" component={AdminChannel}></Route>
+      <Route exact path="/channel/:id/exam/:id" component={AdminExam}></Route>
+      <Redirect to="/"></Redirect>
+    </Switch>
+  </>
 );
 
 const studentRoutes = (

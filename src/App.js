@@ -75,7 +75,8 @@ export default class App extends Component {
     // }
     return (
       <div id="App">
-        {studentRoutes}
+        {adminRoutes}
+        {/* {studentRoutes} */}
         {/* <hr /> */}
         {/* {authRoutes} */}
       </div>
