@@ -3,4 +3,17 @@
   &:hover {
     transform: scale(1.05);
   }
+  width: 30vw;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .dashboard-organizations {
+    transition: all 300ms ease;
+    &:hover {
+      transform: none;
+    }
+    width: 90vw;
+    margin: auto;
+  }
 }

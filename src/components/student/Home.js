@@ -79,15 +79,15 @@ class Home extends Component {
     return (
       <div className="min-vh-">
         <div
-          className="d-flex flex-md-row flex-column flex-wrap mx-auto w-100 justify-content-start"
+          className="d-flex flex-lg-row flex-column flex-wrap mx-lg-auto w-lg-100 justify-content-start"
           style={{ minHeight: "80vh" }}
         >
           {this.state.classes.map((c) => {
             return (
               <div
-                class="dashboard-organizations card border-0 shadow h-50 my-3 mx-auto overflow-hidden"
+                class="dashboard-organizations card border-0 shadow h-50 my-3 mx-lg-auto overflow-hidden"
                 style={{
-                  width: "30vw",
+                  // width: "30vw",
                   borderRadius: ".5em",
                 }}
               >

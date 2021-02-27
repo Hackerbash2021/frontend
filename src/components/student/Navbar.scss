@@ -11,3 +11,30 @@
     transform: scale(2.8);
   }
 }
+#notifications-button-dropdown-menu {
+  height: 60vh;
+  width: 30vw;
+  border-radius: 0.446em;
+  overflow: hidden;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  #join-room-button {
+    transition: all 300ms ease;
+    &:hover {
+      transform: none;
+    }
+  }
+
+  #notifications-button {
+    transition: all 300ms ease;
+    &:hover {
+      transform: none;
+    }
+  }
+
+  #notifications-button-dropdown-menu {
+    width: 80vw;
+  }
+}

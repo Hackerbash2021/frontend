@@ -72,7 +72,7 @@ export default class Channel extends Component {
             <div className="d-flex justify-content-between">
               <div className="">
                 <small>KJSCE</small>
-                <div style={{ userSelect: "all" }}>SDBJK234</div>
+                <div>SDBJK234</div>
               </div>
               <button
                 className="btn btn-danger"

@@ -31,7 +31,7 @@ export default class Exam extends Component {
     return (
       <div className="min-vh-">
         <div
-          className="p-4 shadow mx-4 mt-2 bg-white animate__slideInDown animate__animated"
+          className="p-4 shadow mx-4 mt-2 bg-white animate__rubberBand animate__animated"
           style={{ borderRadius: "1em" }}
         >
           <div className="about-exam">

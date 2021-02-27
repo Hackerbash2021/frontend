@@ -97,8 +97,72 @@ export default class Navbar extends Component {
             Hackerbash
           </h2>
         </div>
-        <div className="mx-auto font-weight-bold w-50 text-center">
+        <div className="mx-auto d-lg-block d-none font-weight-bold w-50 text-center">
           <b>whoami? 👉</b> <u>nishavak.n@somaiya.edu</u>
+        </div>
+        <div class="notifications-button-container">
+          <div
+            style={{
+              position: "fixed",
+              bottom: "1em",
+              left: "1em",
+              zIndex: "1039",
+            }}
+            role="button"
+            className="dropup"
+            data-toggle="dropdown"
+          >
+            <div
+              id="notifications-button"
+              className="bg-dark d-flex justify-content-center align-items-center p-1 shadow-lg rounded-circle"
+              style={{
+                width: "2.8em",
+                height: "2.8em",
+                borderRadius: "1.4em",
+              }}
+            >
+              <div
+                class="fa fa-bell fa- text-white"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Notifications"
+                id="notifications-button-bell"
+              ></div>
+            </div>
+            <div
+              id="notifications-button-dropdown-menu"
+              className=" dropdown-menu my-2 border-0 dropdown-menu"
+            >
+              <PerfectScrollbar
+                className="d-flex flex-column"
+                style={{ height: "54vh" }}
+              >
+                {this.state.notifications.map((notif) => {
+                  return (
+                    <div className="dropdown-item d-flex">
+                      <div className="d-flex flex-column">
+                        <div className="">
+                          <b className="">{notif.name}</b>
+
+                          <div className="text-muted">
+                            <small className="">In {notif.in_days} days</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </PerfectScrollbar>
+              <div
+                className="pb-2 dropdown-item bg-light d-flex justify-content-center"
+                onClick={() => {
+                  // remove all notifs
+                }}
+              >
+                Mark all as read
+              </div>
+            </div>
+          </div>
         </div>
         <button
           class="navbar-toggler"
@@ -149,77 +213,7 @@ export default class Navbar extends Component {
             </li>
 
             {/* bell */}
-            <li class="">
-              <div
-                style={{
-                  position: "fixed",
-                  bottom: "1em",
-                  left: "1em",
-                  zIndex: "1039",
-                }}
-                role="button"
-                className="dropup p-1 shadow-lg rounded-circle "
-                data-toggle="dropdown"
-              >
-                <div
-                  id="notifications-button"
-                  className="bg-dark d-flex justify-content-center align-items-center"
-                  style={{
-                    width: "2.8em",
-                    height: "2.8em",
-                    borderRadius: "1.4em",
-                  }}
-                >
-                  <div
-                    class="fa fa-bell fa- text-white"
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    title="Notifications"
-                    id="notifications-button-bell"
-                  ></div>
-                </div>
-                <div
-                  className="dropdown-menu my-2 border-0 dropdown-menu"
-                  style={{
-                    height: "60vh",
-                    width: "35vw",
-                    borderRadius: ".446em",
-                    overflow: "hidden",
-                  }}
-                >
-                  <PerfectScrollbar
-                    className="d-flex flex-column"
-                    style={{ height: "54vh" }}
-                  >
-                    {this.state.notifications.map((notif) => {
-                      return (
-                        <div className="dropdown-item d-flex">
-                          <div className="d-flex flex-column">
-                            <div className="">
-                              <b className="">{notif.name}</b>
 
-                              <div className="text-muted">
-                                <small className="">
-                                  In {notif.in_days} days
-                                </small>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </PerfectScrollbar>
-                  <div
-                    className="pb-2 dropdown-item bg-light d-flex justify-content-center"
-                    onClick={() => {
-                      // remove all notifs
-                    }}
-                  >
-                    Mark all as read
-                  </div>
-                </div>
-              </div>
-            </li>
             {/* <li className="nav-item pl-2">
               <Link to="/profile" className="nav-link">
                 Profile
