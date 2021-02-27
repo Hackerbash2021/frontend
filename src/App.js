@@ -4,6 +4,7 @@ import Loading from "./components/shared/Loading";
 import { adminRoutes, studentRoutes, authRoutes } from "./router.js";
 import api from "./axios";
 import { NotificationManager } from "react-notifications";
+import $ from "jquery";
 
 export default class App extends Component {
   constructor(props) {
@@ -15,7 +16,14 @@ export default class App extends Component {
     this.__userType = "student";
     this.__authenticated = true;
   }
+  componentDidUpdate(prevProps, prevState) {
+    $('[data-toggle="tooltip"]').tooltip();
+  }
   componentDidMount() {
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+
     // api
     //   .get("whoAmI/")
     //   .then(({ data }) => {

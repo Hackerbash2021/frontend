@@ -38,8 +38,27 @@ export default class Channel extends Component {
     return (
       <div className="min-vh-">
         <div className="px-4 pt-2">
-          <div className="bg-dark shadow text-white mb-3 p-3 rounded ">
-            <h1>Classroom name</h1>
+          <div
+            className="bg- shadow text-white mb-3 p-4 animate__zoomInUp animate__animated"
+            style={{
+              borderRadius: "1.5em",
+              background:
+                "linear-gradient(180deg, rgba(17,0,209,1) 12%, rgba(26,5,255,1) 86%)",
+            }}
+          >
+            <h1>
+              Room name
+              <button class="btn">
+                <span
+                  class="badge badge-danger"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Private Room"
+                >
+                  Private
+                </span>
+              </button>
+            </h1>
             <div className="py-4">
               <b>Description 👉</b>
               <span className="pr-4"></span>
@@ -50,15 +69,34 @@ export default class Channel extends Component {
                 dolor quibusdam earum adipisci numquam.
               </span>
             </div>
-            <small>KJSCE</small>
-            <div style={{ userSelect: "all" }}>SDBJK234</div>
+            <div className="d-flex justify-content-between">
+              <div className="">
+                <small>KJSCE</small>
+                <div style={{ userSelect: "all" }}>SDBJK234</div>
+              </div>
+              <button
+                className="btn btn-danger"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="You would need the code to Join the room again"
+              >
+                Unenroll
+              </button>
+            </div>
           </div>
           <div className="py-1"></div>
           <div>
             {this.exams.map((exam, i) => {
               return (
-                <div className="card border-0 shadow my-2">
-                  <div class="card-header d-flex border-0">
+                <div
+                  className="card border-0 shadow my-4 animate__animated animate__fadeInDown"
+                  style={{
+                    borderRadius: "2em",
+                    background:
+                      "linear-gradient(90deg, rgba(204,141,96,1) 20%, rgba(201,98,24,1) 100%)",
+                  }}
+                >
+                  <div class="card-body d-flex align-items-center border-0">
                     <div
                       className="index bg-dark text-white p-4 d-flex justify-content-center align-items-center rounded-circle mr-4"
                       style={{
@@ -71,7 +109,7 @@ export default class Channel extends Component {
                     </div>
                     <Link
                       to={`/channel/${this.props.match.params.id}/exam/${exam.id}`}
-                      className="stretched-link text-decoration-none"
+                      className="text-white stretched-link text-decoration-none"
                     >
                       <div className="h5 font-weight-bold">{exam.name}</div>
                       <div className="lead" style={{ fontSize: "1em" }}>

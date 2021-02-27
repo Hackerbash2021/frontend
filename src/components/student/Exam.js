@@ -30,7 +30,10 @@ export default class Exam extends Component {
     if (this.state.loading) return <Loading />;
     return (
       <div className="min-vh-">
-        <div className="p-4 shadow mx-4 mt-2" style={{ borderRadius: "1em" }}>
+        <div
+          className="p-4 shadow mx-4 mt-2 bg-white animate__slideInDown animate__animated"
+          style={{ borderRadius: "1em" }}
+        >
           <div className="about-exam">
             <h2 className="text-primary font-weight-bold">Exam Title</h2>
             <div id="exam-description" className="py-3">

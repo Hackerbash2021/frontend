@@ -1,0 +1,13 @@
+#join-room-button {
+  transition: all 300ms ease;
+  &:hover {
+    transform: scale(2.8);
+  }
+}
+
+#notifications-button {
+  transition: all 300ms ease;
+  &:hover {
+    transform: scale(2.8);
+  }
+}

@@ -1,4 +1,6 @@
-import { Component } from "react";
+import $ from "jquery";
+import "./Navbar.scss";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
@@ -70,6 +72,7 @@ export default class Navbar extends Component {
       ],
     };
   }
+  componentDidMount() {}
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -83,9 +86,19 @@ export default class Navbar extends Component {
   };
   render() {
     return (
-      <nav class="navbar navbar-expand-lg shadow- bg-white navbar-light">
+      <nav class="navbar navbar-expand-lg shadow- bg- navbar-light">
         <div className="navbar-brand">
-          <h2 className="p-0 m-0 font-weight-bold">Hackerbash</h2>
+          <h2
+            className="p-0 m-0 font-weight-bold"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Made with ❤ by booleanPundits"
+          >
+            Hackerbash
+          </h2>
+        </div>
+        <div className="mx-auto font-weight-bold w-50 text-center">
+          <b>whoami? 👉</b> <u>nishavak.n@somaiya.edu</u>
         </div>
         <button
           class="navbar-toggler"
@@ -102,18 +115,36 @@ export default class Navbar extends Component {
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto font-weight-bold">
             <li class="nav-item pl-2 active">
-              <Link className="nav-link" to="/">
-                Dashboard
+              <Link
+                className="nav-link"
+                to="/"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Go to dashboard"
+              >
+                🏠 Dashboard
               </Link>
             </li>
             <li class="nav-item pl-2">
-              <Link className="nav-link" to="/search">
-                Search
+              <Link
+                className="nav-link"
+                to="/search"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Find public organizations"
+              >
+                🔎 Search
               </Link>
             </li>
             <li class="nav-item pl-2">
-              <Link className="nav-link" to="/my-exams">
-                Subscriptions
+              <Link
+                className="nav-link"
+                to="/my-exams"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Your subsribed exams brought together"
+              >
+                📃 Subscriptions
               </Link>
             </li>
 
@@ -125,15 +156,28 @@ export default class Navbar extends Component {
                   bottom: "1em",
                   left: "1em",
                   zIndex: "1039",
-                  width: "2.8em",
-                  height: "2.8em",
-                  borderRadius: "1.4em",
                 }}
                 role="button"
-                className="dropup p-1 shadow-lg rounded-circle bg-dark d-flex justify-content-center align-items-center"
+                className="dropup p-1 shadow-lg rounded-circle "
                 data-toggle="dropdown"
               >
-                <div class="fa fa-bell fa- text-white"></div>
+                <div
+                  id="notifications-button"
+                  className="bg-dark d-flex justify-content-center align-items-center"
+                  style={{
+                    width: "2.8em",
+                    height: "2.8em",
+                    borderRadius: "1.4em",
+                  }}
+                >
+                  <div
+                    class="fa fa-bell fa- text-white"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Notifications"
+                    id="notifications-button-bell"
+                  ></div>
+                </div>
                 <div
                   className="dropdown-menu my-2 border-0 dropdown-menu"
                   style={{
@@ -183,7 +227,7 @@ export default class Navbar extends Component {
             </li> */}
             <li class="nav-item pl-2">
               <span className="nav-link text-danger" role="button">
-                Sign out
+                🔐 Sign out
               </span>
             </li>
           </ul>
@@ -199,6 +243,7 @@ export default class Navbar extends Component {
             borderRadius: "1.4em",
             zIndex: "1039",
           }}
+          id="join-room-button"
           data-toggle="modal"
           data-target="#addOrganizationButton"
           role="button"
@@ -207,6 +252,9 @@ export default class Navbar extends Component {
           <div
             style={{ fontSize: "1.3em" }}
             className="fa fa-plus  text-white p-0 m-0"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Join Room"
           ></div>
         </div>
 
@@ -219,19 +267,14 @@ export default class Navbar extends Component {
           aria-hidden="true"
         >
           <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content border-0">
-              <div class="modal-header border-0">
-                <h5 class="modal-title" id="exampleModalLongTitle">
-                  Enter the code
-                </h5>
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
+            <div class="modal-content border-0" style={{ borderRadius: "2em" }}>
+              <div class="modal-header d-flex justify-content-center align-items-center border-0">
+                <h2
+                  class="modal-title font-weight-bold"
+                  id="exampleModalLongTitle"
                 >
-                  <span aria-hidden="true">⛔</span>
-                </button>
+                  Got a secret code? 😄
+                </h2>
               </div>
               <form method="post" onSubmit={this.handleSubmit}>
                 <div class="modal-body border-0">
@@ -240,6 +283,8 @@ export default class Navbar extends Component {
                     type="text"
                     name="code"
                     className="form-control"
+                    placeholder="Put it here"
+                    autoComplete="off"
                     onChange={this.handleChange}
                   />
                 </div>

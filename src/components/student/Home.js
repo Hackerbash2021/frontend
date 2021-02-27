@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
+import "./Home.scss";
 class Home extends Component {
   constructor() {
     super();
@@ -8,54 +9,67 @@ class Home extends Component {
       classes: [
         {
           name: "Organization name",
+          accessibility: "Public",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
         {
           name: "Organization name",
+          accessibility: "Private",
           details: "Organization details",
         },
       ],
@@ -71,13 +85,24 @@ class Home extends Component {
           {this.state.classes.map((c) => {
             return (
               <div
-                class="card border-0 shadow h-50 my-3 mx-auto"
+                class="dashboard-organizations card border-0 shadow h-50 my-3 mx-auto overflow-hidden"
                 style={{
                   width: "30vw",
                   borderRadius: ".5em",
                 }}
               >
-                <h5 class="card-header border-0 text-truncate">{c.name}</h5>
+                <h5 class="card-header border-0 text-truncate">
+                  {c.name}
+                  {c.accessibility === "Private" ? (
+                    <button class="btn">
+                      <span class="badge badge-danger">Private</span>
+                    </button>
+                  ) : (
+                    <button className="btn">
+                      <span class="badge badge-success">Public</span>
+                    </button>
+                  )}
+                </h5>
                 <div class="card-body boder-0 ">
                   {/* <h5 class="card-title"></h5> */}
                   <p class="card-text text-truncate">{c.details}</p>
