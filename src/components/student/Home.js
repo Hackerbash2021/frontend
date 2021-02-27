@@ -5,24 +5,55 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      classes: [{ name: "1", details: "abc" }],
+      classes: [
+        {
+          name:
+            "1gggggggggggggggggggggggggggggggg gggggggggggggggggggggg ggggggggggggggggggggggggggggggg ggggggggg",
+          details:
+            "abcggsgggggggggggggggggggggggggggggggggggggggggggg gggggggggggggg ggggggggg gggggggggg",
+        },
+        {
+          name:
+            "1gggggggggggggggggggggggggggggggg gggggggggggggggggggggg ggggggggggggggggggggggggggggggg ggggggggg",
+          details:
+            "abcggsgggggggggggggggggggggggggggggggggggggggggggg gggggggggggggg ggggggggg gggggggggg",
+        },
+        {
+          name:
+            "1gggggggggggggggggggggggggggggggg gggggggggggggggggggggg ggggggggggggggggggggggggggggggg ggggggggg",
+          details:
+            "abcggsgggggggggggggggggggggggggggggggggggggggggggg gggggggggggggg ggggggggg gggggggggg",
+        },
+        {
+          name:
+            "1gggggggggggggggggggggggggggggggg gggggggggggggggggggggg ggggggggggggggggggggggggggggggg ggggggggg",
+          details:
+            "abcggsgggggggggggggggggggggggggggggggggggggggggggg gggggggggggggg ggggggggg gggggggggg",
+        },
+        {
+          name:
+            "1gggggggggggggggggggggggggggggggg gggggggggggggggggggggg ggggggggggggggggggggggggggggggg ggggggggg",
+          details:
+            "abcggsgggggggggggggggggggggggggggggggggggggggggggg gggggggggggggg ggggggggg gggggggggg",
+        },
+      ],
     };
   }
   render() {
     return (
       <div className="min-vh-100">
         <Navbar />
-        <div className="d-flex flex-wrap">
+        <div className="d-flex flex-md-row flex-column flex-wrap p-4 justify-content-start ml-4">
           {this.state.classes.map((c) => {
             return (
-              <div class="card">
-                <h5 class="card-header">{c.name}</h5>
+              <div class="card w-25 h-50 my-3 mx-5">
+                <h5 class="card-header text-truncate">{c.name}</h5>
                 <div class="card-body">
                   {/* <h5 class="card-title"></h5> */}
-                  <p class="card-text">{c.details}</p>
-                  <a href="#" class="btn btn-primary">
-                    Go somewhere
-                  </a>
+                  <p class="card-text text-truncate">{c.details}</p>
+                  <Link to="/channel/1" class="btn btn-primary">
+                    Go to channel
+                  </Link>
                 </div>
               </div>
             );

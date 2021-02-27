@@ -6,6 +6,7 @@ $blue: #1a05ffff;
 
 $enable-shadows: true;
 $enable-gradients: true;
+$enable-responsive-font-sizes: true;
 
 $theme-colors: (
   "primary": $medium-blue,
@@ -13,6 +14,18 @@ $theme-colors: (
   "dark": $phthalo-blue,
   "danger": #ff0033,
 );
+
+.notification-container {
+  overflow-y: unset !important;
+  padding: 1em 2em !important;
+}
+
+.notification {
+  // box-shadow: none !important;
+  border-radius: 0.445em !important;
+  // box-shadow: 0 0 12px #999;
+  // z-index: 999999999 !important;
+}
 
 ::selection {
   background-color: $blue;

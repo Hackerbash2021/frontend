@@ -5,6 +5,7 @@ import App from "./App";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./index.scss";
 import "react-notifications/lib/notifications.css";
+import "react-perfect-scrollbar/dist/css/styles.css";
 import { NotificationContainer } from "react-notifications";
 
 RD.render(

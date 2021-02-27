@@ -13,7 +13,7 @@ export default class App extends Component {
       loading: false,
     };
     this.__userType = "student";
-    this.__authenticated = false;
+    this.__authenticated = true;
   }
   componentDidMount() {
     // api
@@ -59,11 +59,18 @@ export default class App extends Component {
     //     </form>
     //   </div>
     // );
-    if (this.state.loading) return <Loading />;
-    if (!this.__authenticated) return authRoutes;
-    else {
-      if (this.__userType === "student") return studentRoutes;
-      else if (this.__userType === "admin") return adminRoutes;
-    }
+    // if (this.state.loading) return <Loading />;
+    // if (!this.__authenticated) return authRoutes;
+    // else {
+    //   if (this.__userType === "student") return studentRoutes;
+    //   else if (this.__userType === "admin") return adminRoutes;
+    // }
+    return (
+      <div id="App">
+        {studentRoutes}
+        <hr />
+        {authRoutes}
+      </div>
+    );
   }
 }
