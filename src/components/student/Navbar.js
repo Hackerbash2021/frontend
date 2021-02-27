@@ -8,6 +8,7 @@ export default class Navbar extends Component {
   constructor() {
     super();
     this.state = {
+      darkMode: 0,
       notifications: [
         {
           name: "🐣 Approaching EDA Lab Assessment",
@@ -178,9 +179,42 @@ export default class Navbar extends Component {
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto font-weight-bold">
-            <li class="nav-item pl-2 active">
+            <div
+              className="nav-item pl-2 d-flex justify-content-center align-items-center"
+              role="button"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Toggle dark mode (Experimental)"
+              onClick={() => {
+                this.setState({ darkMode: !this.state.darkMode }, () => {
+                  $("*").css(
+                    "filter",
+                    `invert(${this.state.darkMode ? 1 : 0})`
+                  );
+                });
+              }}
+            >
+              <div
+                className="p-0 m-0 d-flex justify-content-center align-items-center shadow"
+                style={{
+                  color: "white",
+                  backgroundColor: "black",
+                  width: "2em",
+                  height: "2em",
+                  borderRadius: "1em",
+                  zIndex: "1039",
+                }}
+              >
+                <i
+                  style={{ fontSize: "1.4em" }}
+                  class="fa fa-sun-o"
+                  aria-hidden="true"
+                ></i>
+              </div>
+            </div>
+            <li class="nav-item pl-2">
               <Link
-                className="nav-link"
+                className="nav-link text-altblue"
                 to="/"
                 data-toggle="tooltip"
                 data-placement="top"
@@ -191,7 +225,7 @@ export default class Navbar extends Component {
             </li>
             <li class="nav-item pl-2">
               <Link
-                className="nav-link"
+                className="nav-link text-altblue"
                 to="/search"
                 data-toggle="tooltip"
                 data-placement="top"
@@ -200,9 +234,9 @@ export default class Navbar extends Component {
                 🔎 Search
               </Link>
             </li>
-            <li class="nav-item pl-2">
+            <li class="nav-item pl-2 d-none">
               <Link
-                className="nav-link"
+                className="nav-link text-altblue"
                 to="/my-exams"
                 data-toggle="tooltip"
                 data-placement="top"
@@ -215,7 +249,7 @@ export default class Navbar extends Component {
             {/* bell */}
 
             {/* <li className="nav-item pl-2">
-              <Link to="/profile" className="nav-link">
+              <Link to="/profile" className="nav-link text-altblue">
                 Profile
               </Link>
             </li> */}
