@@ -1,4 +1,4 @@
-import {signOut} from '../../services/auth'
+import { signOut } from "../../services/auth";
 import $ from "jquery";
 import "./Navbar.scss";
 import React, { Component } from "react";
@@ -254,7 +254,7 @@ export default class Navbar extends Component {
                 Profile
               </Link>
             </li> */}
-            <li class="nav-item pl-2" onclick={() => signOut()}>
+            <li class="nav-item pl-2" onclick={signOut}>
               <span className="nav-link text-danger" role="button">
                 🔐 Sign out
               </span>
