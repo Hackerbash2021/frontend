@@ -1,3 +1,4 @@
+import {signOut} from '../../services/auth'
 import $ from "jquery";
 import "./Navbar.scss";
 import React, { Component } from "react";
@@ -179,7 +180,7 @@ export default class Navbar extends Component {
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto font-weight-bold">
-            <div
+            {/* <div
               className="nav-item pl-2 d-flex justify-content-center align-items-center"
               role="button"
               data-toggle="tooltip"
@@ -211,7 +212,7 @@ export default class Navbar extends Component {
                   aria-hidden="true"
                 ></i>
               </div>
-            </div>
+            </div> */}
             <li class="nav-item pl-2">
               <Link
                 className="nav-link text-altblue"
@@ -253,7 +254,7 @@ export default class Navbar extends Component {
                 Profile
               </Link>
             </li> */}
-            <li class="nav-item pl-2">
+            <li class="nav-item pl-2" onclick={() => signOut()}>
               <span className="nav-link text-danger" role="button">
                 🔐 Sign out
               </span>

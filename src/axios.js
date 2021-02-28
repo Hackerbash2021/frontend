@@ -1,8 +1,9 @@
 import axios from "axios";
 
-export default axios.create({
-  baseURL: "http://localhost:8000/api/",
-  // withCredentials: true,
+let api = axios.create({
+  baseURL: "api/",
+  withCredentials: true,
   xsrfCookieName: "csrftoken",
   xsrfHeaderName: "HTTP-X-CSRFTOKEN",
 });
+export default api;

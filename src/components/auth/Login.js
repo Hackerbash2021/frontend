@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import voca from "voca";
 import LoginSvg from "./Login.svg";
 import { login, signOut } from "../../services/auth";
-
+// import { api } from '../../axios';
 export class Login extends Component {
   constructor(props) {
     super(props);
@@ -23,12 +23,16 @@ export class Login extends Component {
   handleSubmit = (evt) => {
     evt.preventDefault();
 
-    if (voca.isEmpty(this.state.email) || voca.isEmpty(this.state.password)) {
-      NotificationManager.error("Don't mess around 🥱");
+    if (!voca.isEmpty(this.state.email) && !voca.isEmpty(this.state.password)) {
+      login(this.state.email, this.state.password).then(() => {
+        NotificationManager.success("Welcome 🐱‍👤");
+        window.location.reload()
+      })
     } else {
-      NotificationManager.success("Welcome 🐱‍👤");
+      NotificationManager.error("Don't mess around 🥱");
     }
-
+    // api.post()
+    login(this.state.email, this.state.password);
     // let u = login(this.state.email, this.state.password);
     // NotificationManager.info("Verify account to proceed");
     // NotificationManager.error(e.message);
@@ -97,21 +101,21 @@ export class Login extends Component {
                   </button>
                 </div>
                 <div className="dropdown">
-                  <button
-                    className="btn btn-altblue"
-                    data-target="auth-login-dropdown"
-                    data-toggle="dropdown"
-                  >
-                    More
-                  </button>
-                  <div className="dropdown-menu my-2" id="auth-login-dropdown">
-                    <Link to="/register" className="dropdown-item">
+                  <Link to="/register" className="dropdown-item">
+                    {/* <button
+                      className="btn btn-altblue w-100"
+                      data-target="auth-login-dropdown"
+                      data-toggle="dropdown"
+                    > */}
                       Register
-                    </Link>
-                    <Link to="/forgot" className="dropdown-item">
+                    {/* </button> */}
+                  </Link>
+                  {/* <div className="dropdown-menu my-2" id="auth-login-dropdown"> */}
+
+                  {/* <Link to="/forgot" className="dropdown-item">
                       Forgot Password
-                    </Link>
-                  </div>
+                    </Link> */}
+                  {/* </div> */}
                 </div>
               </div>
             </form>

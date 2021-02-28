@@ -1,8 +1,15 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
+import api from "../../axios";
 import Navbar from "./Navbar";
 import "./Home.scss";
 class Home extends Component {
+  componentDidMount() {
+    api
+      .get("getMyClasses/")
+      .then((res) => {})
+      .catch((err) => console.log(err));
+  }
   constructor() {
     super();
     this.state = {

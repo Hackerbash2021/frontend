@@ -13,14 +13,40 @@ const login = async (email, password) => {
   }
 };
 
-const register = async (email, password) => {
-  try {
-    return await api.post("register/", {
-      email: email,
-      password: password,
-    });
-  } catch (error) {
-    console.log(error);
+const register = async (
+  name,
+  email,
+  password,
+  phone,
+  org_name,
+  orgType,
+  accessibility
+) => {
+  if (org_name) {
+    try {
+      return await api.post("signUpInstitute/", {
+        name: name,
+        email: email,
+        password: password,
+        phone: phone,
+        org_name: org_name,
+        accessibility: accessibility,
+        org_type: orgType,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    try {
+      return await api.post("signUpStudent/", {
+        name: name,
+        email: email,
+        password: password,
+        phone: phone,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 

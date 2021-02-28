@@ -6,7 +6,7 @@ import RegisterSvg from "./Register.svg";
 import Register2Svg from "./Register2.svg";
 import { Link } from "react-router-dom";
 import $ from "jquery";
-// import { register } from "../../services/auth";
+import { register } from "../../services/auth";
 import { NotificationManager } from "react-notifications";
 
 export class Register extends Component {
@@ -84,8 +84,10 @@ export class Register extends Component {
     ev.preventDefault();
     if (this.validatePassword(this.state.password)) {
       if (this.state.confirm_password === this.state.password) {
-        if (!$("#isOrganizationMember:checked").val())
+        if (!$("#isOrganizationMember:checked").val()){
+          register(this.state.email,this.state.password,this.state.contact,this.state.organizationName,this.state.organizationType,this.state.accessibility);
           NotificationManager.success("Account created 😄");
+        }
         else NotificationManager.success("Organization established 👏");
       }
     } else {
@@ -290,7 +292,10 @@ export class Register extends Component {
             </div>
             <div className="form-group d-flex justify-content-between align-items-center">
               <div className="dropdown">
-                <button
+                <Link to="/login" className="dropdown-item">
+                  Login
+                </Link>
+                {/* <button
                   className="btn btn-altblue"
                   data-target="auth-login-dropdown"
                   data-toggle="dropdown"
@@ -304,7 +309,7 @@ export class Register extends Component {
                   <Link to="/forgot" className="dropdown-item">
                     Forgot Password
                   </Link>
-                </div>
+                </div> */}
               </div>
               <button
                 type="submit"
